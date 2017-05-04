@@ -1,7 +1,7 @@
 package com.okldk.familychat;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -31,7 +31,7 @@ public class ChatActivity extends AppCompatActivity {
     private RecyclerView mRecyclerView;
     private RecyclerView.Adapter mAdapter;
     private RecyclerView.LayoutManager mLayoutManager;
-    String[] myDataset={"Hello","Hi","hola","amigo","hahaha","하하하 ","빵꾸똥꾸","메롱"};
+// test    String[] myDataset={"Hello","Hi","hola","amigo","hahaha","메롱"};
 
     String email;
     private List<Chat> mChat;
@@ -113,7 +113,7 @@ public class ChatActivity extends AppCompatActivity {
         mChat = new ArrayList<>();
 
         // specify an adapter (see also next example)
-        mAdapter = new MyAdapter(mChat);
+        mAdapter = new MyAdapter(mChat,email,ChatActivity.this);
         mRecyclerView.setAdapter(mAdapter);
 
 
@@ -128,6 +128,7 @@ public class ChatActivity extends AppCompatActivity {
                 // [START_EXCLUDE]
                 // Update RecyclerView
                 mChat.add(chat);
+                mRecyclerView.scrollToPosition(mChat.size()-1);
                 mAdapter.notifyItemInserted(mChat.size() - 1);
                 // [END_EXCLUDE]
 

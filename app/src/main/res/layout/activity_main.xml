@@ -1,79 +1,78 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:id="@+id/activity_main"
+    android:background="@color/colorPrimary"
     android:paddingBottom="16dp"
     android:paddingLeft="16dp"
     android:paddingRight="16dp"
     android:paddingTop="16dp"
-    android:background="@color/colorPrimary"
     tools:context=".MainActivity">
     <RelativeLayout
         android:layout_width="200dp"
         android:layout_height="wrap_content"
-        android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true">
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true">
         <TextView
 
+            android:id="@+id/tvhello"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Hello World!"
-            android:id="@+id/tvhello"
             android:layout_centerHorizontal="true"
+            android:text="Hello World!"
             android:textColor="#ffffff"
-            android:textSize="30sp"
-            />
+            android:textSize="30sp" />
+
         <EditText
+            android:id="@+id/etEmail"
             android:layout_width="200dp"
             android:layout_height="30dp"
-            android:hint="Email"
-            android:id="@+id/etEmail"
-            android:background="#ffffff"
-            android:textSize="15sp"
             android:layout_below="@+id/tvhello"
             android:layout_marginBottom="10dp"
-            />
+            android:background="#ffffff"
+            android:hint="Email"
+            android:textSize="15sp" />
+
         <EditText
+            android:id="@+id/etPassword"
             android:layout_width="200dp"
             android:layout_height="30dp"
-            android:hint="Password"
-            android:id="@+id/etPassword"
-            android:background="#ffffff"
-            android:textSize="15sp"
             android:layout_below="@+id/etEmail"
-            />
+            android:background="#ffffff"
+            android:hint="Password"
+            android:textSize="15sp" />
+
         <Button
-            android:text="REGISTER"
+            android:id="@+id/btnRegister"
             android:layout_width="200dp"
             android:layout_height="wrap_content"
-            android:id="@+id/btnRegister"
             android:layout_below="@+id/etPassword"
             android:layout_centerHorizontal="true"
-            />
+            android:text="REGISTER" />
+
         <Button
+            android:id="@+id/btnLogin"
             android:layout_width="200dp"
             android:layout_height="wrap_content"
-            android:id="@+id/btnLogin"
-            android:text="LOG IN"
             android:layout_below="@+id/btnRegister"
             android:layout_centerHorizontal="true"
-            />
+            android:text="LOG IN" />
+
         <Button
+            android:id="@+id/btnCancel"
             android:layout_width="200dp"
             android:layout_height="wrap_content"
-            android:id="@+id/btnCancel"
-            android:text="CANCEL"
             android:layout_below="@+id/btnLogin"
             android:layout_centerHorizontal="true"
-            />
+            android:text="CANCEL" />
     </RelativeLayout>
     <ProgressBar
+        android:id="@+id/pbLogin"
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:layout_centerInParent="true"
-        android:id="@+id/pbLogin"
         android:visibility="gone"/>
 
 </RelativeLayout>

@@ -6,7 +6,16 @@
 
     <TextView
         android:id="@+id/mtextView"
-        android:layout_width="match_parent"
-        android:layout_height="30dp"
-        android:text="TextView" />
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        android:textSize="15sp"
+        android:background="@drawable/chat_bubble"
+        android:paddingStart="10dp"
+        android:paddingEnd="10dp"
+        android:paddingTop="5dp"
+        android:paddingBottom="5dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginBottom="5dp"
+        />
 </LinearLayout>
