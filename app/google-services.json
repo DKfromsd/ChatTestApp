@@ -15,6 +15,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "633716895662-a9dddvdgr2iso2sd2ri4t7u9oqb3s5to.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.okldk.familychat",
+            "certificate_hash": "2a4e03320471d36f6327e4768ba5a5f6f9737dce"
+          }
+        },
+        {
           "client_id": "633716895662-7o23afm7s311htt6miqqecbq8olpno0r.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
