@@ -25,6 +25,7 @@ import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -166,7 +167,12 @@ public class ProfileFragment extends Fragment {
             @Override
             public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
                 // taskSnapshot.getMetadata() contains file metadata such as size, content-type, and download URL.
-                Uri downloadUrl = taskSnapshot.getDownloadUrl();// TODO
+
+                //Uri downloadUrl = taskSnapshot.getUploadSessionUri();//   .getDownloadUrl();// TODO
+                Task<Uri> urlTask = taskSnapshot.getStorage().getDownloadUrl();
+                while (!urlTask.isSuccessful());  // Workaround DK 04.20.2019 TODO
+                Uri downloadUrl = urlTask.getResult();
+
                 String photoUri =  String.valueOf(downloadUrl);
                 Log.d("url", photoUri);
                 FirebaseDatabase database = FirebaseDatabase.getInstance();
