@@ -73,13 +73,18 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
     // Replace the contents of a view (invoked by the layout manager)
     @Override
     public void onBindViewHolder(ViewHolder holder, final int position) {
+    //public void onBindViewHolder(ViewHolder holder, final String stEmail) {
         // - get element from your dataset at this position
         // - replace the contents of the view with that element
+
+        //TODO 2019 04 24
         holder.mTextView.setText(mChat.get(position).getText());
+        //holder.mTextView.setText(stEmail);
+
         holder.mTextView.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view){
-                Toast.makeText(context,String.valueOf(position), Toast.LENGTH_SHORT).show();
+                Toast.makeText(context,stEmail, Toast.LENGTH_SHORT).show();
             }
         });
 

@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v7.app.AppCompatActivity;
+import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Toast;
 
@@ -75,6 +76,7 @@ public class TabActivity extends AppCompatActivity {
         transaction.commit();
 
     }
+    /*
     @Override
     public void onBackPressed(){
 
@@ -83,5 +85,34 @@ public class TabActivity extends AppCompatActivity {
         }
         Toast.makeText(this,"one more time pressed, then finsih", Toast.LENGTH_SHORT).show();
         lastPressed = System.currentTimeMillis();
-     }
+     } */
+    @Override
+    public void onBackPressed () {
+        String message = "";
+        message = "Back button is blocked to test. Please use menu item or Log out";
+        // show message via toast
+        Toast toast = Toast.makeText(this, message, Toast.LENGTH_SHORT);
+        toast.show();
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu (Menu menu){
+        getMenuInflater().inflate(R.menu.menu_total, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // display a message when a button was pressed
+        String message = "";
+        if (item.getItemId() == R.id.Exit) {
+            message = "Exit this app!";
+        }
+        // show message via toast
+        Toast toast = Toast.makeText(this, message, Toast.LENGTH_SHORT);
+        toast.show();
+        finish();        //super.onDestroy();
+        return true;
+
+    }
 }

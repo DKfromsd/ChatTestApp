@@ -1,5 +1,6 @@
 package com.okldk.familychat;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
@@ -58,6 +59,8 @@ public class ChatActivity extends AppCompatActivity {
             // FirebaseUser.getToken() instead.
            // String uid = user.getUid();
         }
+        Intent in = getIntent();
+        final String stChatId = in.getStringExtra( "familyUid"); // TODO
 
         etText=(EditText) findViewById(R.id.etText);
         btnSend=(Button) findViewById(R.id.btnSend);
@@ -78,7 +81,7 @@ public class ChatActivity extends AppCompatActivity {
 
                     // Write a message to the database
                     //FirebaseDatabase database = FirebaseDatabase.getInstance();
-                    DatabaseReference myRef = database.getReference("chats").child(formattedDate); // ("chats").push().child(formattedDate); // push key
+                    DatabaseReference myRef = database.getReference("users").child(stChatId).child("chats").child(formattedDate); // ("chats").push().child(formattedDate); // push key
 
 
                     Hashtable<String,String> chat = new Hashtable<String, String>();
@@ -90,11 +93,12 @@ public class ChatActivity extends AppCompatActivity {
 
                 stText = etText.getText().toString();
                 Toast.makeText(ChatActivity.this, stText, Toast.LENGTH_SHORT).show();
+                etText.setText(""); // TODO 2019 04 21
         }
         });
         Button btnFinish=(Button) findViewById(R.id.btnFinish);
        // btnFinish.setOnClickListener((view) {
-        btnFinish.setOnClickListener(new View.OnClickListener(){
+                btnFinish.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view){
               finish();
@@ -117,7 +121,7 @@ public class ChatActivity extends AppCompatActivity {
         mRecyclerView.setAdapter(mAdapter);
 
 
-        DatabaseReference myRef = database.getReference("chats");
+        DatabaseReference myRef = database.getReference("users").child(stChatId).child("chats");
         myRef.addChildEventListener(new ChildEventListener() {
             @Override
             public void onChildAdded(DataSnapshot dataSnapshot, String s) {

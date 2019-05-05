@@ -48,7 +48,7 @@ public class FamilyFragment extends Fragment {
         database = FirebaseDatabase.getInstance();
         DatabaseReference myRef = database.getReference("users");
 
-        myRef.addValueEventListener(new ValueEventListener() {
+        myRef.addListenerForSingleValueEvent(new ValueEventListener() {//  myRef.addValueEventListener(new ValueEventListener() {// TODO
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 String value = dataSnapshot.getValue().toString();
